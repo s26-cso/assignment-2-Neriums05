@@ -47,7 +47,6 @@ insert_right:
     j end_insert
 
 insert_left:
-    
     ld a0, 8(s0)
     add a1, s1, zero
     call insert
@@ -64,7 +63,7 @@ end_insert:
 
 .globl get
 get:
-    
+    # a0 = root, a1 = val
     beq a0, zero, get_done
     
     lw t0, 0(a0)
@@ -72,12 +71,10 @@ get:
 
     blt a1, t0, get_left
     
-    
     ld a0, 16(a0)
     j get
     
 get_left:
-    
     ld a0, 8(a0)
     j get
 
@@ -87,7 +84,6 @@ get_done:
 
 .globl getAtMost
 getAtMost:
-    
     addi a2, zero, -1          
 
 loop_start:
@@ -97,8 +93,8 @@ loop_start:
     beq t0, a0, found_the_value 
     bgt t0, a0, gam_left  
     
-    add a2, t0, zero          
-    ld a1, 16(a1)      
+    add a2, t0, zero        
+    ld a1, 16(a1)    
     j loop_start
 
 gam_left:
