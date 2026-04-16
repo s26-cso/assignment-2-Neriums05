@@ -160,4 +160,5 @@ main_ret:
 
 .section .rodata
 fmt_int: .string "%d"
+fmt_space: .string " "
 fmt_newline: .string "\n"
