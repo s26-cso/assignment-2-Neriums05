@@ -7,6 +7,7 @@ main:
     sd s0, 16(sp)
     sd s1, 8(sp)
     sd s2, 0(sp)
+    addi sp, sp, -32
 
     
     la a0, filename
@@ -99,6 +100,7 @@ exit:
     add a0, s0, zero
     call close
     
+    addi sp, sp, 32
     ld ra, 24(sp)
     ld s0, 16(sp)
     ld s1, 8(sp)
